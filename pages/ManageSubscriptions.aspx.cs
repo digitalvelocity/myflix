@@ -9,7 +9,7 @@ using System.Web.Script.Services;
 using System.Web.Services;
 
 
-public partial class pages_ManageSubscriptions : System.Web.UI.Page
+public partial class ManageSubscriptions : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
