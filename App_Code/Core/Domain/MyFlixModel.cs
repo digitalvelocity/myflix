@@ -52,7 +52,6 @@ namespace Core.Domain
     {
         public int UserID { get; set; }
         public string EmailAddress { get; set; }
-        public string UserName { get; set; }
         public string Password { get; set; }
         public string ProfilePhotoPath { get; set; }
         public System.DateTime DateCreated { get; set; }
@@ -91,6 +90,7 @@ namespace Core.Domain
         public Nullable<decimal> OldPayment { get; set; }
         public Nullable<decimal> NewPayment { get; set; }
         public Nullable<System.DateTime> SubscribedDate { get; set; }
+        public int UserSubscriptionID { get; set; }
     }
 }
 namespace Core.Domain
@@ -107,5 +107,6 @@ namespace Core.Domain
         public Nullable<decimal> OldPayment { get; set; }
         public Nullable<decimal> NewPayment { get; set; }
         public Nullable<System.DateTime> SubscribedDate { get; set; }
+        public int UserSubscriptionID { get; set; }
     }
 }

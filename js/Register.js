@@ -2,22 +2,26 @@
 {
     if (validateFields())
     {
-        alert("pass");
+        PageMethods.CreateAccount($("#email").val(), $("#password").val(), function (result) {
+            if (result)
+            {
+                document.location.href = "Login.aspx";
+            }
+            else
+            {
+                $("#divEmail").addClass("has-error");
+                $("#divPassword").addClass("has-error");
+                alert("Error creating account!")
+            }
+        });
     }
     else
     {
-        alert("fail");
+        alert("Please enter required fields.");
     }
 }
 
 function validateFields()
 {
-    (".form-control").each(function ()
-    {
-        if (($this).val() == "")
-        {
-            return false;
-        }
-    });
-    return true;
+    return $("#email").val().length > 0 && $("#password").val().length > 0;
 }

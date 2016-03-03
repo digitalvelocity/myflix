@@ -39,7 +39,6 @@
           </Key>
           <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EmailAddress" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="UserName" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ProfilePhotoPath" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
@@ -63,14 +62,14 @@
         </EntityType>
         <EntityType Name="UserSubscription">
           <Key>
-            <PropertyRef Name="UserID" />
-            <PropertyRef Name="ServiceProviderID" />
+            <PropertyRef Name="UserSubscriptionID" />
           </Key>
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="ServiceProviderID" Type="int" Nullable="false" />
           <Property Name="OldPayment" Type="decimal" Precision="18" Scale="2" />
           <Property Name="NewPayment" Type="decimal" Precision="18" Scale="2" />
           <Property Name="SubscribedDate" Type="datetime" />
+          <Property Name="UserSubscriptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'StreamingMaster.dbo.view_UserSubscription' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -80,6 +79,7 @@ warning 6002: The table/view 'StreamingMaster.dbo.view_UserSubscription' does no
             <PropertyRef Name="PlayerURL" />
             <PropertyRef Name="UserID" />
             <PropertyRef Name="ServiceProviderID" />
+            <PropertyRef Name="UserSubscriptionID" />
           </Key>
           <Property Name="SubscriptionProvider" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PlayerURL" Type="varchar" MaxLength="1024" Nullable="false" />
@@ -88,6 +88,7 @@ warning 6002: The table/view 'StreamingMaster.dbo.view_UserSubscription' does no
           <Property Name="OldPayment" Type="decimal" Precision="18" Scale="2" />
           <Property Name="NewPayment" Type="decimal" Precision="18" Scale="2" />
           <Property Name="SubscribedDate" Type="datetime" />
+          <Property Name="UserSubscriptionID" Type="int" Nullable="false" />
         </EntityType>
         <EntityContainer Name="MyFlixModelStoreContainer">
           <EntitySet Name="CreditCard" EntityType="Self.CreditCard" Schema="dbo" store:Type="Tables" />
@@ -103,7 +104,8 @@ warning 6002: The table/view 'StreamingMaster.dbo.view_UserSubscription' does no
     [view_UserSubscription].[ServiceProviderID] AS [ServiceProviderID], 
     [view_UserSubscription].[OldPayment] AS [OldPayment], 
     [view_UserSubscription].[NewPayment] AS [NewPayment], 
-    [view_UserSubscription].[SubscribedDate] AS [SubscribedDate]
+    [view_UserSubscription].[SubscribedDate] AS [SubscribedDate], 
+    [view_UserSubscription].[UserSubscriptionID] AS [UserSubscriptionID]
     FROM [dbo].[view_UserSubscription] AS [view_UserSubscription]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
@@ -139,18 +141,6 @@ warning 6002: The table/view 'StreamingMaster.dbo.view_UserSubscription' does no
           <Property Name="APIUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="APIPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ProfilePhotoPath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-        </EntityType>
         <EntityType Name="UserProfile">
           <Key>
             <PropertyRef Name="UserID" />
@@ -170,21 +160,21 @@ warning 6002: The table/view 'StreamingMaster.dbo.view_UserSubscription' does no
         <EntityContainer Name="MyFlixEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CreditCards" EntityType="Self.CreditCard" />
           <EntitySet Name="ServiceProviders" EntityType="Self.ServiceProvider" />
-          <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="UserProfiles" EntityType="Self.UserProfile" />
           <EntitySet Name="UserSubscriptions" EntityType="MyFlixModel.UserSubscription" />
           <EntitySet Name="view_UserSubscription" EntityType="MyFlixModel.view_UserSubscription" />
+          <EntitySet Name="Users" EntityType="MyFlixModel.User" />
         </EntityContainer>
         <EntityType Name="UserSubscription">
           <Key>
-            <PropertyRef Name="UserID" />
-            <PropertyRef Name="ServiceProviderID" />
+            <PropertyRef Name="UserSubscriptionID" />
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="ServiceProviderID" Type="Int32" Nullable="false" />
           <Property Name="OldPayment" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="NewPayment" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="SubscribedDate" Type="DateTime" Precision="3" />
+          <Property Name="UserSubscriptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="view_UserSubscription">
           <Key>
@@ -192,6 +182,7 @@ warning 6002: The table/view 'StreamingMaster.dbo.view_UserSubscription' does no
             <PropertyRef Name="PlayerURL" />
             <PropertyRef Name="UserID" />
             <PropertyRef Name="ServiceProviderID" />
+            <PropertyRef Name="UserSubscriptionID" />
           </Key>
           <Property Name="SubscriptionProvider" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PlayerURL" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="false" />
@@ -200,6 +191,18 @@ warning 6002: The table/view 'StreamingMaster.dbo.view_UserSubscription' does no
           <Property Name="OldPayment" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="NewPayment" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="SubscribedDate" Type="DateTime" Precision="3" />
+          <Property Name="UserSubscriptionID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProfilePhotoPath" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -237,19 +240,6 @@ warning 6002: The table/view 'StreamingMaster.dbo.view_UserSubscription' does no
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="MyFlixModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="ProfilePhotoPath" ColumnName="ProfilePhotoPath" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="UserProfiles">
             <EntityTypeMapping TypeName="MyFlixModel.UserProfile">
               <MappingFragment StoreEntitySet="UserProfile">
@@ -270,6 +260,7 @@ warning 6002: The table/view 'StreamingMaster.dbo.view_UserSubscription' does no
           <EntitySetMapping Name="UserSubscriptions">
             <EntityTypeMapping TypeName="MyFlixModel.UserSubscription">
               <MappingFragment StoreEntitySet="UserSubscription">
+                <ScalarProperty Name="UserSubscriptionID" ColumnName="UserSubscriptionID" />
                 <ScalarProperty Name="SubscribedDate" ColumnName="SubscribedDate" />
                 <ScalarProperty Name="NewPayment" ColumnName="NewPayment" />
                 <ScalarProperty Name="OldPayment" ColumnName="OldPayment" />
@@ -281,6 +272,7 @@ warning 6002: The table/view 'StreamingMaster.dbo.view_UserSubscription' does no
           <EntitySetMapping Name="view_UserSubscription">
             <EntityTypeMapping TypeName="MyFlixModel.view_UserSubscription">
               <MappingFragment StoreEntitySet="view_UserSubscription">
+                <ScalarProperty Name="UserSubscriptionID" ColumnName="UserSubscriptionID" />
                 <ScalarProperty Name="SubscribedDate" ColumnName="SubscribedDate" />
                 <ScalarProperty Name="NewPayment" ColumnName="NewPayment" />
                 <ScalarProperty Name="OldPayment" ColumnName="OldPayment" />
@@ -288,6 +280,18 @@ warning 6002: The table/view 'StreamingMaster.dbo.view_UserSubscription' does no
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="PlayerURL" ColumnName="PlayerURL" />
                 <ScalarProperty Name="SubscriptionProvider" ColumnName="SubscriptionProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="MyFlixModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="ProfilePhotoPath" ColumnName="ProfilePhotoPath" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

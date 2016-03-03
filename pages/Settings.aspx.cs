@@ -4,11 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.Script.Services;
-using System.Web.Services;
-using Core.Domain;
 
-public partial class EditProfile : System.Web.UI.Page
+public partial class pages_Settings : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -20,13 +17,5 @@ public partial class EditProfile : System.Web.UI.Page
                 Response.End();
             }
         }
-    }
-
-    [WebMethod,ScriptMethod]
-    public static User GetUser()
-    {
-        MyFlixEntities db = new MyFlixEntities();
-
-        return db.Users.FirstOrDefault(u => u.UserID == SessionHandler.UserID);
     }
 }

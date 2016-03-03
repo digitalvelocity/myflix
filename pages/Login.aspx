@@ -47,10 +47,10 @@
                         <form role="form" runat="server">
                             <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
                             <fieldset>
-                                <div class="form-group">
+                                <div class="form-group" id="divEmail">
                                     <input class="form-control" placeholder="E-mail" id="email" name="email" type="email" autofocus>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="divPassword">
                                     <input class="form-control" placeholder="Password" id="password" name="password" type="password" value="">
                                 </div>
                                 <div class="checkbox">

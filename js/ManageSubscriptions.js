@@ -1,11 +1,11 @@
-﻿var userID = 1;
-
-function getUserSubscriptions()
+﻿function getUserSubscriptions()
 {
-    PageMethods.GetUserSubscriptions(userID, function (result) {
+    PageMethods.GetUserSubscriptions(function (result) {
         if (result != null && result.length > 0)
         {
             var tb = "";
+            var totalNewPayment = 0;
+            var totalOldPayment = 0;
             for (var i=0; i<result.length; i++)
             {
                 var tr = "<tr class=\"odd gradeX\">";
@@ -15,26 +15,35 @@ function getUserSubscriptions()
                 {
                     tr += "<td align=\"center\">" + "<button type=\"button\" class=\"btn btn-success\"></button>" + "</td>";
                     tr += "<td align=\"center\"></td>"
-                    tr += "<td align=\"center\">" + "<button type=\"button\" class=\"btn btn-warning btn-circle\"><i class=\"fa fa-times\"></i></button>" + "</td>";
+                    tr += "<td align=\"center\">" + "<button type=\"button\" class=\"btn btn-warning btn-circle\" onclick=\"updateUserSubscription(" + result[i].UserSubscriptionID + ",false)\"><i class=\"fa fa-times\"></i></button>" + "</td>";
                 }
                 else
                 {
                     tr += "<td align=\"center\">" + "<button type=\"button\" class=\"btn btn-default\"></button>" + "</td>";
-                    tr += "<td align=\"center\">" + "<button type=\"button\" class=\"btn btn-info btn-circle\"><i class=\"fa fa-check\"></i></button>" + "</td>";
+                    tr += "<td align=\"center\">" + "<button type=\"button\" class=\"btn btn-info btn-circle\" onclick=\"updateUserSubscription(" + result[i].UserSubscriptionID + ",true)\"><i class=\"fa fa-check\"></i></button>" + "</td>";
                     tr += "<td align=\"center\"></td>"
                 }
 
                 tr += "<td>" + "$" + result[i].NewPayment + "</td>";
+                totalNewPayment += result[i].NewPayment;
                 tr += "<td>" + "$" + result[i].OldPayment + "</td>";
+                totalOldPayment += result[i].OldPayment;
+
                 tr += "<td>" + "<a target=\"blank\" href=\"" + result[i].PlayerURL + "\">Watch Now</a></td>"; 
                 tr += "<td>" + "<a data-toggle=\"modal\" data-target=\"#contractModal\">View</a>" + "</td>";
                 tb += tr;
             }
+            var footer = "<tr class=\"odd gradeX\"><td></td><td></td><td></td><td></td><td><b>" + "$" + totalNewPayment.toFixed(2) + "</b></td><td><b>" + "$" + totalOldPayment.toFixed(2) + "</b></td><td></td><td></td>";
+            tb += footer;
+
             $("#tbUserSubscriptions").html(tb);
         }
-        else
-        {
-            alert("nothing");
-        }
+    });
+}
+
+function updateUserSubscription(userSubscriptionID, subscribed)
+{
+    PageMethods.UpdateUserSubscription(userSubscriptionID, subscribed, function (result) {
+            getUserSubscriptions();
     });
 }

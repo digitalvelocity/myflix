@@ -15,7 +15,11 @@ public partial class pages_Default : System.Web.UI.Page
     public static bool Login(string email, string password)
     {
         MyFlixEntities db = new MyFlixEntities();
-        return db.Users.Any(u => email.ToLower().Equals(email) && u.Password.Equals(password));
+
+        User user = db.Users.FirstOrDefault(u => email.ToLower().Equals(email) && u.Password.Equals(password));
+        SessionHandler.UserID = user != null ? user.UserID : 0;
+
+        return user != null;
     }
 
 }

@@ -27,9 +27,9 @@ namespace Core.Domain
     
         public virtual DbSet<CreditCard> CreditCards { get; set; }
         public virtual DbSet<ServiceProvider> ServiceProviders { get; set; }
-        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserProfile> UserProfiles { get; set; }
         public virtual DbSet<UserSubscription> UserSubscriptions { get; set; }
         public virtual DbSet<view_UserSubscription> view_UserSubscription { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
