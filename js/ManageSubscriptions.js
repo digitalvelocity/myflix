@@ -26,6 +26,8 @@ function getUserSubscriptions()
 
                 tr += "<td>" + "$" + result[i].NewPayment + "</td>";
                 tr += "<td>" + "$" + result[i].OldPayment + "</td>";
+                tr += "<td>" + "<a target=\"blank\" href=\"" + result[i].PlayerURL + "\">Watch Now</a></td>"; 
+                tr += "<td>" + "<a data-toggle=\"modal\" data-target=\"#contractModal\">View</a>" + "</td>";
                 tb += tr;
             }
             $("#tbUserSubscriptions").html(tb);

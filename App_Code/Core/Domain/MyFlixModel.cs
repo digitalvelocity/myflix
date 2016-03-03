@@ -101,6 +101,7 @@ namespace Core.Domain
     public partial class view_UserSubscription
     {
         public string SubscriptionProvider { get; set; }
+        public string PlayerURL { get; set; }
         public int UserID { get; set; }
         public int ServiceProviderID { get; set; }
         public Nullable<decimal> OldPayment { get; set; }

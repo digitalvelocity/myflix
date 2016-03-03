@@ -77,10 +77,12 @@ warning 6002: The table/view 'StreamingMaster.dbo.view_UserSubscription' does no
         <EntityType Name="view_UserSubscription">
           <Key>
             <PropertyRef Name="SubscriptionProvider" />
+            <PropertyRef Name="PlayerURL" />
             <PropertyRef Name="UserID" />
             <PropertyRef Name="ServiceProviderID" />
           </Key>
           <Property Name="SubscriptionProvider" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PlayerURL" Type="varchar" MaxLength="1024" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="ServiceProviderID" Type="int" Nullable="false" />
           <Property Name="OldPayment" Type="decimal" Precision="18" Scale="2" />
@@ -96,6 +98,7 @@ warning 6002: The table/view 'StreamingMaster.dbo.view_UserSubscription' does no
           <EntitySet Name="view_UserSubscription" EntityType="Self.view_UserSubscription" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [view_UserSubscription].[SubscriptionProvider] AS [SubscriptionProvider], 
+    [view_UserSubscription].[PlayerURL] AS [PlayerURL], 
     [view_UserSubscription].[UserID] AS [UserID], 
     [view_UserSubscription].[ServiceProviderID] AS [ServiceProviderID], 
     [view_UserSubscription].[OldPayment] AS [OldPayment], 
@@ -186,10 +189,12 @@ warning 6002: The table/view 'StreamingMaster.dbo.view_UserSubscription' does no
         <EntityType Name="view_UserSubscription">
           <Key>
             <PropertyRef Name="SubscriptionProvider" />
+            <PropertyRef Name="PlayerURL" />
             <PropertyRef Name="UserID" />
             <PropertyRef Name="ServiceProviderID" />
           </Key>
           <Property Name="SubscriptionProvider" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PlayerURL" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="ServiceProviderID" Type="Int32" Nullable="false" />
           <Property Name="OldPayment" Type="Decimal" Precision="18" Scale="2" />
@@ -281,6 +286,7 @@ warning 6002: The table/view 'StreamingMaster.dbo.view_UserSubscription' does no
                 <ScalarProperty Name="OldPayment" ColumnName="OldPayment" />
                 <ScalarProperty Name="ServiceProviderID" ColumnName="ServiceProviderID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PlayerURL" ColumnName="PlayerURL" />
                 <ScalarProperty Name="SubscriptionProvider" ColumnName="SubscriptionProvider" />
               </MappingFragment>
             </EntityTypeMapping>
