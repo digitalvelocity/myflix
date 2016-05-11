@@ -139,6 +139,9 @@
                             <li>
                                 <a href="/pages/Settings.aspx"><i class="fa fa-table fa-fw"></i>Settings</a>
                             </li>
+                            <li>
+                                <a href="/pages/list.html"><i class="fa fa-table fa-fw"></i>Settings</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /.sidebar-collapse -->
