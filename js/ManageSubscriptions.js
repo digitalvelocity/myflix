@@ -15,7 +15,14 @@
                 {
                     tr += "<td align=\"center\">" + "<button type=\"button\" class=\"btn btn-success\"></button>" + "</td>";
                     tr += "<td align=\"center\"></td>"
-                    tr += "<td align=\"center\">" + "<button type=\"button\" class=\"btn btn-warning btn-circle\" onclick=\"updateUserSubscription(" + result[i].UserSubscriptionID + ",false)\"><i class=\"fa fa-times\"></i></button>" + "</td>";
+                    if (result[i].NewPayment != 0)
+                    {
+                        tr += "<td align=\"center\">" + "<button type=\"button\" class=\"btn btn-warning btn-circle\" onclick=\"updateUserSubscription(" + result[i].UserSubscriptionID + ",false)\"><i class=\"fa fa-times\"></i></button>" + "</td>";
+                    }
+                    else
+                    {
+                        tr += "<td></td>";
+                    }
                 }
                 else
                 {
@@ -24,10 +31,28 @@
                     tr += "<td align=\"center\"></td>"
                 }
 
-                tr += "<td>" + "$" + result[i].NewPayment + "</td>";
-                totalNewPayment += result[i].NewPayment;
-                tr += "<td>" + "$" + result[i].OldPayment + "</td>";
-                totalOldPayment += result[i].OldPayment;
+                if (result[i].NewPayment != 0)
+                {
+                    tr += "<td>" + "$" + result[i].NewPayment + "</td>";
+                    totalNewPayment += result[i].NewPayment;
+
+                    if (result[i].SubscribedDate != null)
+                    {
+                        tr += "<td>" + "$" + result[i].OldPayment + "</td>";
+                        totalOldPayment += result[i].OldPayment;
+                    }
+                    else
+                    {
+                        tr += "<td>" + "N.A.</td>";
+                    }
+                }
+                else
+                {
+                    tr += "<td>Subscribed</td><td>Subscribed</td>";
+                }
+
+               
+
 
                 tr += "<td>" + "<a target=\"blank\" href=\"" + result[i].PlayerURL + "\">Watch Now</a></td>"; 
                 tr += "<td>" + "<a data-toggle=\"modal\" data-target=\"#contractModal\">View</a>" + "</td>";

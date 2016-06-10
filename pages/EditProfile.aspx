@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>MyFlix - Edit User Profile</title>
+    <title>WOZ - Edit User Profile</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -47,7 +47,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/home.html">My Flix</a>
+                <a class="navbar-brand" href="/home.html">WOZ</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -131,7 +131,7 @@
                             <a href="/pages/EditProfile.aspx"><i class="fa fa-bar-chart-o fa-fw"></i> Profile</a>
                         </li>
                         <li>
-                            <a href="/pages/Settings.aspx"><i class="fa fa-table fa-fw"></i> Settings</a>
+                            <a href="/pages/index.html"><i class="fa fa-table fa-fw"></i> Media/Content</a>
                         </li>
                     </ul>
                 </div>

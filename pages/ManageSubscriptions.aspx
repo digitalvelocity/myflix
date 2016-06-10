@@ -52,7 +52,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/index.html">My Flix</a>
+                    <a class="navbar-brand" href="/index.html">WOZ</a>
                 </div>
                 <!-- /.navbar-header -->
 
@@ -136,11 +136,11 @@
                             <li>
                                 <a href="/pages/EditProfile.aspx"><i class="fa fa-bar-chart-o fa-fw"></i>Profile</a>
                             </li>
-                            <li>
+<%--                            <li>
                                 <a href="/pages/Settings.aspx"><i class="fa fa-table fa-fw"></i>Settings</a>
-                            </li>
+                            </li>--%>
                             <li>
-                                <a href="/pages/list.html"><i class="fa fa-table fa-fw"></i>Settings</a>
+                                <a href="/pages/index.html"><i class="fa fa-table fa-fw"></i>Media/Content</a>
                             </li>
                         </ul>
                     </div>
@@ -212,6 +212,28 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <!-- Modal -->
+        <div class="modal fade" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="subscribeModalLabel">Subscribe</h4>
+                    </div>
+                    <div class="modal-body">
+                        Do you want to subscribe to this service or buy the content?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Subscribe</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Buy</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
