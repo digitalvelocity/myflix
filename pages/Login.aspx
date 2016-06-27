@@ -19,6 +19,9 @@
     <!-- MetisMenu CSS -->
     <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
+    <!-- Social Media CSS -->
+    <link href="../css/bootstrap-soical.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
 
@@ -59,7 +62,14 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                               <a href="javascript:login()" class="btn btn-lg btn-success btn-block">Login</a>
+                               <a href="javascript:login()" class="btn btn-lg btn-success btn-block">Login</a> 
+                               <p>&nbsp;</p>
+                                <p class="text-center">OR</p>
+
+                                <!-- Facebook button -->
+                                <a class="btn btn-block btn-lg btn-social btn-facebook">
+                                    <span class="fa fa-facebook"></span> Sign in with Facebook
+                                </a>
                             </fieldset>
                         </form>
                     </div>
