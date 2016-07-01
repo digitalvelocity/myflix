@@ -13,14 +13,14 @@
 
     <title>WOZ - Login</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
     <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
     <!-- Social Media CSS -->
-    <link href="../css/bootstrap-soical.css" rel="stylesheet">
+    <link href="../css/bootstrap-social.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
@@ -38,46 +38,46 @@
 </head>
 
 <body>
+    <div class="login">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="login-panel panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Please Sign In</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form role="form" runat="server">
+                                <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
+                                <fieldset>
+                                    <div class="form-group" id="divEmail">
+                                        <input class="form-control" placeholder="E-mail" id="email" name="email" type="email" autofocus>
+                                    </div>
+                                    <div class="form-group" id="divPassword">
+                                        <input class="form-control" placeholder="Password" id="password" name="password" type="password" value="">
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                        </label>
+                                    </div>
+                                    <!-- Change this to a button or input when using this as a form -->
+                                   <a href="javascript:login()" class="btn btn-lg btn-success btn-block">Login</a> 
+                                   <p>&nbsp;</p>
+                                    <p class="text-center">OR</p>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form role="form" runat="server">
-                            <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
-                            <fieldset>
-                                <div class="form-group" id="divEmail">
-                                    <input class="form-control" placeholder="E-mail" id="email" name="email" type="email" autofocus>
-                                </div>
-                                <div class="form-group" id="divPassword">
-                                    <input class="form-control" placeholder="Password" id="password" name="password" type="password" value="">
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                    </label>
-                                </div>
-                                <!-- Change this to a button or input when using this as a form -->
-                               <a href="javascript:login()" class="btn btn-lg btn-success btn-block">Login</a> 
-                               <p>&nbsp;</p>
-                                <p class="text-center">OR</p>
-
-                                <!-- Facebook button -->
-                                <a class="btn btn-block btn-lg btn-social btn-facebook">
-                                    <span class="fa fa-facebook"></span> Sign in with Facebook
-                                </a>
-                            </fieldset>
-                        </form>
+                                    <!-- Facebook button -->
+                                    <a class="btn btn-block btn-lg btn-social btn-facebook">
+                                        <span class="fa fa-facebook"></span> Sign in with Facebook
+                                    </a>
+                                </fieldset>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <!-- jQuery -->
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 

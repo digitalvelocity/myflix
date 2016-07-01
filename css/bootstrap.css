@@ -5916,6 +5916,8 @@ button.close {
   outline: 0;
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
           box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    font-family: inherit;
+  color: #222222;
 }
 .modal-backdrop {
   position: fixed;
@@ -6758,3 +6760,33 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+
+
+/*AA Additional CSS*/
+
+.login {
+    display: table;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    padding: 100px 0;
+    /*text-align: center;
+    color: #fff;*/
+    background: url(../img/intro-bg.jpg) repeat-y bottom center scroll;
+    background-color: #000;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+.login:before {
+    content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-image: linear-gradient(to bottom right,#000000,#000000);
+		opacity: .85;
+  }
