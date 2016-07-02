@@ -16,14 +16,17 @@
         <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.css" rel="stylesheet">
 
-    <!-- MetisMenu CSS -->
-    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../css/grayscale.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet"> -->
 
     <!-- Social Media CSS -->
     <link href="../css/bootstrap-social.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- Custom CSS
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet"> -->
 
     <!-- Custom Fonts -->
     <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -38,6 +41,7 @@
 </head>
 
 <body>
+                            <form role="form" runat="server">
     <div class="login">
         <div class="container">
             <div class="row">
@@ -47,7 +51,6 @@
                             <h3 class="panel-title">Please Sign In</h3>
                         </div>
                         <div class="panel-body">
-                            <form role="form" runat="server">
                                 <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
                                 <fieldset>
                                     <div class="form-group" id="divEmail">
@@ -63,7 +66,6 @@
                                     </div>
                                     <!-- Change this to a button or input when using this as a form -->
                                    <a href="javascript:login()" class="btn btn-lg btn-success btn-block">Login</a> 
-                                   <p>&nbsp;</p>
                                     <p class="text-center">OR</p>
 
                                     <!-- Facebook button -->
@@ -71,7 +73,6 @@
                                         <span class="fa fa-facebook"></span> Sign in with Facebook
                                     </a>
                                 </fieldset>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -92,6 +93,7 @@
 
     <!-- Custom JavaScript -->
     <script src="/js/Login.js"></script>
+                            </form>
 
 </body>
 
